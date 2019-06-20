@@ -12,6 +12,15 @@
 
     <!-- TODO #3 - Use the same list display from search.html -->
 
+    <p th:unless="${jobs}">No results found.</p>
+    <p th:text="${jobs.size()}"></p>
+    <table class="job-listing" th:each="job:${jobs}">
+        <tr th:each="mapEntry:${job}">
+            <td th:text="${mapEntry.key}"></td>
+            <td th:text="${mapEntry.value}"></td>
+        </tr>
+    </table>
+
 </div>
 
 </body>
